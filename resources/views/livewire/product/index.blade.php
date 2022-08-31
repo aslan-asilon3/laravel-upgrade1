@@ -213,9 +213,7 @@
                                             @foreach ($products as $product)
                                                 <td>{{ $product->id }}</td>
                                                 <td>{{ $product->name }}</td>
-                                                <td>{{ 
-                                                        Carbon\Carbon::parse($product->created_at)->format('j F Y')
-                                                        }}
+                                                <td>{{ Carbon\Carbon::parse($product->created_at)->format('j F Y')}}
                                                 </td>
                                                 <td>
                                                     <a type="button" class="btn btn-info" href=""> <i class="fas fa-eye"></i> </a>

@@ -63,7 +63,7 @@ class ProductController extends Controller
     public function export(Request $request)
     {
         $data = $request->all();
-        return Excel::download(new ProductExport($data), 'Data-Product ' . now() . '.xlsx');
+        return Excel::download(new ProductExport($data), 'Data-Product ' . Carbon::parse(now())->format('j F Y') . '.xlsx');
     }
 
 

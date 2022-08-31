@@ -4,8 +4,9 @@ namespace App\Exports;
 
 use App\Models\Product;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class ProductExport implements FromCollection
+class ProductExport implements FromCollection, WithHeadings
 {
     /**
     * @return \Illuminate\Support\Collection
@@ -14,4 +15,11 @@ class ProductExport implements FromCollection
     {
         return Product::all();
     }
+
+    public function headings(): array {
+        return [
+            "Product ID","Product Name", "Created At"
+        ];
+    }
+
 }

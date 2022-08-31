@@ -305,7 +305,7 @@ return [
 
         [
             'text'        => 'Dashboard',
-            'url'         => 'admin-page',
+            'url'         => 'admin',
             'icon'        => 'far fa-fw fa-file',
         ],
         [

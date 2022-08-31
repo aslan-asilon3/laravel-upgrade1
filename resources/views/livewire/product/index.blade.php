@@ -118,7 +118,7 @@
     </div>
 
     <div class="card-body" >
-        <form action="" method="get"  id="search-form">
+        <form action="{{route('product-export')}}" method="POST"  id="search-form">
             {!! csrf_field() !!}
             <div class="row">
                 <div class="col-md-6">
@@ -150,7 +150,9 @@
     <div class="card-footer">
         <div class="float-right">
             <a type="button" class="btn btn-flat bg-primary" id="search"><i class="fas fa-search"></i> Filter</a>
-            <button type="submit" class="btn btn-flat bg-fuchsia" id="download"><i class="fas fa-download"></i> Export Data Produk</button>
+            <a type="button" class="btn btn-flat bg-fuchsia" ><i class="fas fa-csv"></i> Export CSV</a>
+            <a type="button" class="btn btn-flat bg-red" ><i class="fas fa-pdf"></i> Export PDF</a>
+            <button type="submit" class="btn btn-flat bg-green" id="download"><i class="fas fa-excel"></i> Export Excel</button>
             <a type="button" id="reset" class="btn btn-flat bg-secondary  btn-reset"><i class="fas fa-undo-alt"></i> Reset</a>
         </div>
     </div>
@@ -211,7 +213,10 @@
                                             @foreach ($products as $product)
                                                 <td>{{ $product->id }}</td>
                                                 <td>{{ $product->name }}</td>
-                                                <td>{{ $product->created_at }}</td>
+                                                <td>{{ 
+                                                        Carbon\Carbon::parse($product->created_at)->format('j F Y')
+                                                        }}
+                                                </td>
                                                 <td>
                                                     <a type="button" class="btn btn-info" href=""> <i class="fas fa-eye"></i> </a>
                                                     <a type="button" class="btn btn-danger" href=""> <i class="fas fa-trash"></i> </a>

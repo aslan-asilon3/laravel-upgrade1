@@ -7,6 +7,7 @@ use App\Models\Product;
 use Auth;
 use DataTables;
 use App\Imports\ImportProduct;
+use App\Exports\ProductExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ExportTemplateProduk;
 use Carbon\Carbon;
@@ -61,8 +62,8 @@ class ProductController extends Controller
 
     public function export(Request $request)
     {
-        // $data = $request->all();
-        // return Excel::download(new ExportDataSales($data), 'data-sales ' . now() . '.xlsx');
+        $data = $request->all();
+        return Excel::download(new ProductExport($data), 'Data-Product ' . now() . '.xlsx');
     }
 
 

@@ -30,12 +30,12 @@ Route::group(['middleware' => 'role:admin'], function () {
 
         Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])->name('admin-dashboard');
         
-        // =====Data produk
-        Route::get('/produk', [App\Http\Controllers\ProductController::class, 'index'])->name('produk');
-        // Route::get('/produk', [App\Http\Controllers\ProductController::class, 'ajax'])->name('ajax-produk');
-        // Route::post('/produk-import', [ProductController::class, 'import'])->name('produk-import');
-        // Route::post('/produk-export', [ProductController::class, 'export'])->name('produk-export');
-        // Route::get('/produk/download-template', [ProductController::class, 'DownloadTemplate'])->name('produk-download-template');
+        // =====Data product
+        Route::get('/product', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
+        Route::post('/product-export', [App\Http\Controllers\ProductController::class, 'export'])->name('product-export');
+        // Route::get('/product', [App\Http\Controllers\ProductController::class, 'ajax'])->name('ajax-produk');
+        // Route::post('/product-import', [ProductController::class, 'import'])->name('produk-import');
+        // Route::get('/product/download-template', [ProductController::class, 'DownloadTemplate'])->name('produk-download-template');
         // =====End Data produk
     });
 
